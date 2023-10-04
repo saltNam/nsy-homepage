@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://dev-nuzal-db.nuzal.co.kr:13306/fincette?useUnicode=true&characterEncoding=UTF8&serverTimezone=Asia/Seoul&autoReconnect=true&allowMultiQueries=true
+    username: 'bodab-web-dev'
+    password: '!@dnpfrmfoa0101'
