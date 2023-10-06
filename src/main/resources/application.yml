@@ -4,3 +4,18 @@ spring:
     url: jdbc:mysql://dev-nuzal-db.nuzal.co.kr:13306/fincette?useUnicode=true&characterEncoding=UTF8&serverTimezone=Asia/Seoul&autoReconnect=true&allowMultiQueries=true
     username: 'bodab-web-dev'
     password: '!@dnpfrmfoa0101'
+
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+
+  logging:
+    level:
+      org:
+        hibernate:
+          type:
+            descriptor:
+              sql: trace
