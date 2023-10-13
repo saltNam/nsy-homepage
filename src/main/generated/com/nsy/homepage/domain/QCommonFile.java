@@ -22,7 +22,7 @@ public class QCommonFile extends EntityPathBase<CommonFile> {
 
     public static final QCommonFile commonFile = new QCommonFile("commonFile");
 
-    public final QCommonBoard commonBoard;
+    public final QCommonBoard f;
 
     public final StringPath fileName = createString("fileName");
 
@@ -54,7 +54,7 @@ public class QCommonFile extends EntityPathBase<CommonFile> {
 
     public QCommonFile(Class<? extends CommonFile> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.commonBoard = inits.isInitialized("commonBoard") ? new QCommonBoard(forProperty("commonBoard"), inits.get("commonBoard")) : null;
+        this.f = inits.isInitialized("f") ? new QCommonBoard(forProperty("f"), inits.get("f")) : null;
     }
 
 }

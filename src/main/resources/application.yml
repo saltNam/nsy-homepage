@@ -19,3 +19,7 @@ spring:
           type:
             descriptor:
               sql: trace
+
+  springdoc:
+    swagger-ui: /swagger-ui.html
+    use-root-path: true

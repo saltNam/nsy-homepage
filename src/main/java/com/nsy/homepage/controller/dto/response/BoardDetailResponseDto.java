@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class BoardListDetailDto {
+public class BoardDetailResponseDto {
 
     private long seq;
 
@@ -21,7 +21,7 @@ public class BoardListDetailDto {
     private String regTime;
 
     @QueryProjection
-    public BoardListDetailDto(long seq, String title, String contentText, String contentUrl, String uploadFile, String uploadFileYn, String uploadFilePath, String regTime) {
+    public BoardDetailResponseDto(long seq, String title, String contentText, String contentUrl, String uploadFile, String uploadFileYn, String uploadFilePath, String regTime) {
         this.seq = seq;
         this.title = title;
         this.contentText = contentText;

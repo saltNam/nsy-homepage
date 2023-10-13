@@ -9,7 +9,6 @@ public class GetBoardListDto {
     private int page;
     private long limit;
     private long offset;
-    private String sort;
     private String category;
 
     public void setCategory(String category) {
@@ -17,11 +16,10 @@ public class GetBoardListDto {
     }
 
     @Builder
-    public GetBoardListDto(int page, long limit, String sort) {
+    public GetBoardListDto(int page, long limit) {
         this.page = page == 0 ? 1 : page;
         this.limit = limit == 0 ? 20 : limit;
         this.offset = (this.page-1)*limit;
-        this.sort = sort;
     }
 
 }
