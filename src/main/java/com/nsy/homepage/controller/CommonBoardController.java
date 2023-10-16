@@ -52,7 +52,7 @@ public class CommonBoardController {
             @ApiResponse(responseCode = "200", description = "OK", useReturnTypeSchema = true),
             @ApiResponse(responseCode = "400", description = "BAD REQUEST", content = @Content(schema = @Schema(implementation = ApiErrorResponse.class)))
     })
-    @GetMapping("/{category}/{seq}")
+    @GetMapping("/v0.1/board/{category}/{seq}")
     public ResponseEntity<ApiCommonResponse<BoardDetailResponseDto>> getBoardDetail(@PathVariable String category, @PathVariable int seq) {
         BoardDetailResponseDto boardDetail = commonBoardService.getBoardDetail(category, seq);
 

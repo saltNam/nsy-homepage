@@ -37,6 +37,7 @@ public class CommonBoardRepositoryImpl implements CommonBoardRepositoryCustom{
                         .and(commonBoard.category.eq(getBoardListDto.getCategory())))
                 .limit(getBoardListDto.getLimit())
                 .offset(getBoardListDto.getOffset())
+                .orderBy(commonBoard.seq.desc())
                 .fetch();
 
         Long count = queryFactory
