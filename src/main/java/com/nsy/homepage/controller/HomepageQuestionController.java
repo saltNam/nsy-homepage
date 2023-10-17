@@ -4,25 +4,30 @@ import com.nsy.homepage.common.ApiCommonResponse;
 import com.nsy.homepage.common.ApiErrorResponse;
 import com.nsy.homepage.controller.dto.request.GetHomepageQuestionDto;
 import com.nsy.homepage.domain.HomepageQuestion;
-import com.nsy.homepage.error.ApiException;
-import com.nsy.homepage.error.ErrorCode;
 import com.nsy.homepage.repository.HomepageQuestionRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.Errors;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.validation.Valid;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
+@Tag(name="Question", description = "문의하기 등록 api")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
@@ -36,7 +41,7 @@ public class HomepageQuestionController {
             @ApiResponse(responseCode = "400", description = "Validation 오류입니다.",content = @Content(schema = @Schema(implementation = ApiErrorResponse.class)))
     })
     @PostMapping("/v0.1/question")
-    public ResponseEntity<ApiCommonResponse<String>> saveHomepageQuestion(@RequestBody @Valid GetHomepageQuestionDto getHomepageQuestionDto) {
+    public ResponseEntity<ApiCommonResponse<String>> saveHomepageQuestion(@RequestBody @Valid GetHomepageQuestionDto getHomepageQuestionDto) throws InvalidAlgorithmParameterException, UnsupportedEncodingException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
 
         HomepageQuestion homepageQuestion = HomepageQuestion.createHomepageQuestion(getHomepageQuestionDto);
         homepageQuestionRepository.save(homepageQuestion);
